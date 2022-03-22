@@ -1,0 +1,73 @@
+version: '3.8'
+services:
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - external_network
+    depends_on:
+      - web
+      - backend
+
+  web:
+    container_name: web
+    build:
+      context: ./web
+    environment:
+      TZ: Asia/Tokyo
+    networks:
+      - external_network
+    depends_on:
+      - backend
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: twichat
+      POSTGRES_PASSWORD: twichat
+      POSTGRES_DB: twichat
+    restart: always
+    volumes:
+      - ./postgres:/docker-entrypoint-initdb.d
+      - ./postgres/data:/var/lib/postgresql/data
+    networks:
+      - internal_network
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+    volumes:
+      - ./backend/log/gunicorn:/app/log/gunicorn
+    environment:
+      - POSTGRES_DB=twichat
+      - POSTGRES_USER=twichat
+      - POSTGRES_PASSWORD=twichat
+      - POSTGRES_HOST=postgres
+      - SECRET_KEY=secret
+      - DEBUG=true
+      - TWITTER_API_CONKEY=xxx
+      - TWITTER_API_CONSEC=xxx
+      - BACKEND_HOSTNAME=http://localhost
+      - WEBPAGE_BASE_URL=http://localhost
+    command: >
+      /bin/bash -c "
+      python manage.py migrate &&
+      gunicorn -c /app/gunicorn.py twichat.wsgi"
+    networks:
+      - internal_network
+      - external_network
+
+networks:
+    external_network:
+      external: true
+    internal_network:
+      internal: true

@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+
+  web:
+    container_name: web
+    build:
+      context: ./web
+    environment:
+      TZ: Asia/Tokyo
+    networks:
+      - external_network
+    depends_on:
+      - backend
+
+  backend:
+    container_name: backend
+    build:
+      context: ./backend
+    volumes:
+      - ./backend/log/gunicorn:/app/log/gunicorn
+    environment:
+      - POSTGRES_DB=twichat
+      - POSTGRES_USER=twichat
+      - POSTGRES_PASSWORD=twichat
+      - POSTGRES_HOST=postgres
+      - SECRET_KEY=secret
+      - DEBUG=true
+      - TWITTER_API_CONKEY=xxx
+      - TWITTER_API_CONSEC=xxx
+      - BACKEND_HOSTNAME=http://localhost:3000
+      - WEBPAGE_BASE_URL=http://localhost:8080
+    command: >
+      /bin/bash -c "
+      python manage.py migrate &&
+      gunicorn -c /app/gunicorn.py twichat.wsgi"
+    networks:
+      - internal_network
+      - external_network
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+
+networks:
+    external_network:
+      external: true
+    internal_network:
+      internal: true
