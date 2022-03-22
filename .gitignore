@@ -3,7 +3,7 @@ node_modules
 yarn*
 public/assets
 public/main.js
-server/
+web/server/
 
 # Database
 postgres/data/**/*
