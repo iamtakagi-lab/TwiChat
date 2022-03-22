@@ -1,5 +1,5 @@
 # TwiChat
-![](./web/public/images/twichat_ogp.png)
+![](./web/public/images/og_image.png)
 
 ## Setup
 
