@@ -10,5 +10,5 @@ urlpatterns = [
     path('api/make_sentence/<screen_name>', views.GenTextAPIView.as_view()),
 
     # Twitter card image
-    path('api/ogp/<screen_name>', views.GenImageAPIView.as_view()),
+    path('api/user_og_image/<screen_name>', views.GenImageAPIView.as_view()),
 ]
