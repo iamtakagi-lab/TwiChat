@@ -1,7 +1,11 @@
+import Head from "next/head";
 import React from "react";
 import { Layout } from "../components/layout";
+import { Seo } from "../components/seo";
 
 const PrivacyPolicy = () => (
+  <>
+    <Seo pageSubTitle="プライバシーポリシー" />
     <Layout>
       <section id="pp_section">
         <h2>プライバシーポリシー</h2>
@@ -39,6 +43,7 @@ const PrivacyPolicy = () => (
         </p>
       </section>
     </Layout>
+  </>
 );
 
-export default PrivacyPolicy
+export default PrivacyPolicy;

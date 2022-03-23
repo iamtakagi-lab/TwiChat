@@ -3,12 +3,12 @@ import { FaPaperPlane, FaTwitter } from "react-icons/fa";
 import { makeApiUrl } from "../common";
 import { OPPONENT_MESSAGE_DELAY, APP_NAME, TWITTER_ID_REGEX } from "../consts";
 import { Layout } from "../components/layout";
-import { CustomSeo } from "../components/seo";
 import { Message, SentenceRensponse } from "../types";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { Seo } from "../components/seo";
 
-const Chat: React.FC<{}> = ({}) => {
+const Chat = () => {
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -30,7 +30,8 @@ const Chat: React.FC<{}> = ({}) => {
     if (router.isReady) {
       const initialize = async () => {
         /* Check Error */
-        if (!screenName || screenName === null || typeof screenName != "string") return;
+        if (!screenName || screenName === null || typeof screenName != "string")
+          return;
         if (!screenName.search(TWITTER_ID_REGEX)) {
           setIsError(true);
           return;
@@ -80,20 +81,20 @@ const Chat: React.FC<{}> = ({}) => {
   if (isError)
     return (
       <Layout>
-        <p style={{textAlign: "center", marginTop: "1rem"}}>エラー: {errorMessage}</p>
+        <p style={{ textAlign: "center", marginTop: "1rem" }}>
+          エラー: {errorMessage}
+        </p>
       </Layout>
     );
 
   return (
     <>
-      {screenName && (
+      {router.isReady && screenName && (
         <>
-          <Head>
-            <CustomSeo
-              pageSubTitle={`${screenName}`}
-              ogImageUrl={`https://twichat.app/api/user_og_image/${screenName}`}
-            />
-          </Head>
+          <Seo
+            pageSubTitle={`${screenName}`}
+            ogImageUrl={`https://twichat.app/api/user_og_image/${screenName}`}
+          />
           <header className="header" id="chat_header">
             <div id="header_left">
               <div

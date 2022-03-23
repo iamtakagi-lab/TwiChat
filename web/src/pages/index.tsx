@@ -1,9 +1,10 @@
+import Head from "next/head";
 import React, { FormEvent, useState } from "react";
 import { FaTwitter, FaFacebook } from "react-icons/fa";
 import { SiHatenabookmark } from "react-icons/si";
 import { makeApiUrl } from "../common";
 import { Layout } from "../components/layout";
-import { DefaultSeo } from "../components/seo";
+import { Seo } from "../components/seo";
 import { API_BASE_URL, APP_NAME } from "../consts";
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
 
   return (
     <>
+      <Seo/>
       <Layout>
         <section id="top_section">
           <h2 id="top_title">もうひとりの自分と話せるアプリ</h2>

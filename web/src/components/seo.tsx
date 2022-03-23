@@ -1,32 +1,17 @@
-import React from "react";
 import Head from "next/head";
+import React from "react";
 
-export const DefaultSeo = () => {
+export const Seo: React.FC<{
+  pageSubTitle?: string;
+  ogImageUrl?: string;
+}> = ({ pageSubTitle, ogImageUrl }) => {
   return (
-    <>
+    <Head>
       <meta charSet="UTF-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
       <meta name="referrer" content="origin" />
       <link rel="preconnect" href="https://cdn.jsdelivr.net" />
       <link rel="stylesheet" href="./style.css" />
-      <title>TwiChat / もうひとりの自分と話そう</title>
-      <meta property="description" content="もうひとりの自分と話そう" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@twichat_app" />
-
-      <meta property="og:title" content="TwiChat / もうひとりの自分と話そう" />
-      <meta property="og:description" content="もうひとりの自分と話そう" />
-      <meta
-        property="og:site_name"
-        content="TwiChat / もうひとりの自分と話そう"
-      />
-      <meta
-        property="og:image"
-        content="https://twichat.app/images/og_image.png"
-      />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://twichat.app" />
-
       <meta
         name="msapplication-square70x70logo"
         content="./favicons/site-tile-70x70.png"
@@ -262,25 +247,19 @@ export const DefaultSeo = () => {
         href="./favicons/icon-32x32.png"
       />
       <link rel="manifest" href="./favicons/manifest.json" />
-    </>
-  );
-};
 
-export const CustomSeo: React.FC<{
-  pageSubTitle?: string;
-  ogImageUrl?: string;
-}> = ({ pageSubTitle, ogImageUrl }) => {
-  return (
-    <>
-      <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <meta name="referrer" content="origin" />
-      <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-      <title>TwiChat / {pageSubTitle ? pageSubTitle : "もうひとりの自分と話そう"}</title>
+      <title>
+        TwiChat / {pageSubTitle ? pageSubTitle : "もうひとりの自分と話そう"}
+      </title>
       <meta property="description" content="もうひとりの自分と話そう" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@twichat_app" />
-      <meta property="og:title" content={`TwiChat / ${pageSubTitle ? pageSubTitle : "もうひとりの自分と話そう"}`} />
+      <meta
+        property="og:title"
+        content={`TwiChat / ${
+          pageSubTitle ? pageSubTitle : "もうひとりの自分と話そう"
+        }`}
+      />
       <meta property="og:description" content="もうひとりの自分と話そう" />
       <meta
         property="og:site_name"
@@ -294,6 +273,6 @@ export const CustomSeo: React.FC<{
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://twichat.app" />
-    </>
+    </Head>
   );
 };
