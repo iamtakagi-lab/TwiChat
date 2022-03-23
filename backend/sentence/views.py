@@ -260,7 +260,7 @@ class GenTextAPIView(APIView):
         )
 
 def wrap_text(img, text, font_size, max_length):
-    font = ImageFont.truetype("assets/MPLUS1p-Regular.ttf", font_size)
+    font = ImageFont.truetype("assets/OpenSans-ExtraBold.ttf", font_size)
     draw = ImageDraw.Draw(img)
     text_list = [text]
     while max_length < draw.textsize(text_list[-1], font=font)[0]:
@@ -272,7 +272,7 @@ def wrap_text(img, text, font_size, max_length):
     return text_list
 
 def add_text_to_image(img, text, font_size, font_color, max_length=1000):
-    font = ImageFont.truetype("assets/MPLUS1p-Regular.ttf", font_size)
+    font = ImageFont.truetype("assets/OpenSans-ExtraBold.ttf", font_size)
     draw = ImageDraw.Draw(img)
     wrapped_text = wrap_text(img, text, font_size, max_length)
     if 2 < len(wrapped_text):
