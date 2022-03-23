@@ -72,7 +72,7 @@ export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="og:image"
-          content={`https://twichat.app/user_og_image/${screenName}`}
+          content={`https://twichat.app/api/user_og_image/${screenName}`}
         />
       </Helmet>
       <header className="header" id="chat_header">
