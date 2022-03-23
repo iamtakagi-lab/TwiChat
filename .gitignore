@@ -4,6 +4,7 @@ yarn*
 public/assets
 web/public/main.js
 web/server/
+web/dist/
 
 # Database
 postgres/data/**/*

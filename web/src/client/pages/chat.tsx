@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect, FormEvent } from "react";
-import { Helmet } from "react-helmet";
 import { FaPaperPlane, FaTwitter } from "react-icons/fa";
 import { makeApiUrl } from "../common";
 import { OPPONENT_MESSAGE_DELAY, APP_NAME } from "../consts";
-import { Layout } from "../layout";
+import { Layout } from "../components/layout";
+import { Head } from "../components/head";
+import { Message, SentenceRensponse } from "../types";
 
 export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
   const [chatInput, setChatInput] = useState("");
@@ -47,34 +48,37 @@ export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
   const addOpponentMessage = (text: string) =>
     setTimeout(() => {
       addMessage({ text, isMine: false });
-      scrollBottomRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollBottomRef?.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }, OPPONENT_MESSAGE_DELAY);
 
   const onSend = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addMessage({ text: chatInput, isMine: true });
     setChatInput("");
-    scrollBottomRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    scrollBottomRef?.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
     const { sentence } = await makeNewSentence();
     addOpponentMessage(sentence);
   };
 
-  if(isError) return (
-    <Layout>
-      <p>エラー: {errorMessage}</p>
-    </Layout>
-  )
+  if (isError)
+    return (
+      <Layout>
+        <p>エラー: {errorMessage}</p>
+      </Layout>
+    );
 
   return (
     <>
-      <Helmet>
-        <title>TwiChat / {screenName}</title>
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="og:image"
-          content={`https://twichat.app/api/user_og_image/${screenName}`}
-        />
-      </Helmet>
+      <Head
+        pageSubTitle={`${screenName}`}
+        ogImageUrl={`https://twichat.app/api/user_og_image/${screenName}`}
+      />
       <header className="header" id="chat_header">
         <div id="header_left">
           <div
@@ -82,7 +86,11 @@ export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
             id="header_logo"
             onClick={() => (location.href = "/")}
           >
-            <object type="image/svg+xml" data="./images/logo.svg" width={"26px"} />
+            <object
+              type="image/svg+xml"
+              data="./images/logo.svg"
+              width={"26px"}
+            />
             {APP_NAME}
           </div>
         </div>

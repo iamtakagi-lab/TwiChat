@@ -6,7 +6,8 @@ import { TermsOfService } from "./pages/terms_of_service";
 import { PrivacyPolicy } from "./pages/privacy_policy";
 import { Inquires } from "./pages/inquires";
 import { Faq } from "./pages/faq";
-import { Layout } from "./layout";
+import { Layout } from "./components/layout";
+import { TWITTER_ID_REGEX } from "./consts";
 
 export const Root = () => {
   const current = new URL(location.href);
@@ -29,7 +30,7 @@ export const Root = () => {
     return <Faq />;
   }
 
-  if (current.pathname.match(new RegExp("/[0-9a-zA-Z_]{1,15}"))) {
+  if (current.pathname.match(TWITTER_ID_REGEX)) {
     const screenName = current.pathname.replace("/", "");
 
     return <Chat screenName={screenName} />;

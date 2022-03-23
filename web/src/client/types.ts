@@ -1,9 +1,9 @@
-type SentenceRensponse = {
+export interface SentenceRensponse {
   sentence: string;
   avatarUrl: string;
 };
 
-interface Message {
+export interface Message {
   isMine: boolean;
   text: string;
 }

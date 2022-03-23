@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTwitter } from "react-icons/fa";
 import { makeApiUrl } from "../common";
-import { APP_NAME } from "../consts";
+import { API_BASE_URL, APP_NAME } from "../consts";
 
 export const Header = () => (
   <header className="header">
@@ -20,7 +20,7 @@ export const Header = () => (
         id="header_login_btn"
         onClick={() => {
           location.href = makeApiUrl(
-            "auth/login?callback=http://localhost:3000/api/auth/callback"
+            `auth/login?callback=${API_BASE_URL}auth/callback`
           );
         }}
       >

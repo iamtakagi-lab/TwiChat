@@ -2,7 +2,7 @@
   "name": "twichat",
   "version": "1.0.0",
   "scripts": {
-    "dev:ts-node": "yarn build && cross-env NODE_ENV=development ts-node-dev src/server/index.ts",
+    "dev:ts-node": "cross-env NODE_ENV=development ts-node-dev src/index.ts",
     "dev:webpack": "cross-env NODE_ENV=development webpack-dev-server",
     "start": "node ./server/main.js",
     "build": "cross-env NODE_ENV=production webpack --mode production"
@@ -32,7 +32,6 @@
     "@types/webpack-node-externals": "^2.5.3",
     "babel-loader": "^8.2.4",
     "cross-env": "^7.0.3",
-    "svg-url-loader": "^7.1.1",
     "ts-node": "^10.7.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.3",

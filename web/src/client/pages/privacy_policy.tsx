@@ -1,10 +1,10 @@
 import React from "react";
-import { FaTwitter } from "react-icons/fa";
-import { makeApiUrl } from "../common";
-import { APP_NAME } from "../consts";
-import { Layout } from "../layout";
+import { Head } from "../components/head";
+import { Layout } from "../components/layout";
 
 export const PrivacyPolicy = () => (
+  <>
+    <Head />
     <Layout>
       <section id="pp_section">
         <h2>プライバシーポリシー</h2>
@@ -13,7 +13,7 @@ export const PrivacyPolicy = () => (
         <p>
           当サイトでは、メールアドレス・パスワードのような個人情報は一切収集していません。
         </p>
-        <br/>
+        <br />
         <h2>当サイトが使用しているアクセス解析ツールについて</h2>
         <p>
           当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。
@@ -42,4 +42,5 @@ export const PrivacyPolicy = () => (
         </p>
       </section>
     </Layout>
-  );
+    </>
+);
