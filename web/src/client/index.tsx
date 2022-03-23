@@ -8,6 +8,7 @@ import { Inquires } from "./pages/inquires";
 import { Faq } from "./pages/faq";
 import { Layout } from "./components/layout";
 import { TWITTER_ID_REGEX } from "./consts";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export const Root = () => {
   const current = new URL(location.href);
@@ -43,5 +44,13 @@ export const Root = () => {
   );
 };
 
-
-ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(
+  <React.StrictMode>
+    <HelmetProvider>
+      <Helmet>
+        <Root />
+      </Helmet>
+    </HelmetProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
