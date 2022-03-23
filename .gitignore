@@ -2,7 +2,7 @@
 node_modules
 yarn*
 public/assets
-public/main.js
+web/public/main.js
 web/server/
 
 # Database
