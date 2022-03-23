@@ -260,7 +260,7 @@ class GenTextAPIView(APIView):
         )
 
 def wrap_text(img, text, font_size, max_length):
-    font = ImageFont.truetype("MPLUS1p-Regular.ttf", font_size)
+    font = ImageFont.truetype("assets/MPLUS1p-Regular.ttf", font_size)
     draw = ImageDraw.Draw(img)
     text_list = [text]
     while max_length < draw.textsize(text_list[-1], font=font)[0]:
@@ -272,7 +272,7 @@ def wrap_text(img, text, font_size, max_length):
     return text_list
 
 def add_text_to_image(img, text, font_size, font_color, max_length=1000):
-    font = ImageFont.truetype("MPLUS1p-Regular.ttf", font_size)
+    font = ImageFont.truetype("assets/MPLUS1p-Regular.ttf", font_size)
     draw = ImageDraw.Draw(img)
     wrapped_text = wrap_text(img, text, font_size, max_length)
     if 2 < len(wrapped_text):
@@ -289,7 +289,7 @@ class GenImageAPIView(APIView):
         if screen_name is None:
             screen_name = ''
         screen_name = screen_name.lstrip('@')
-        img = Image.open('ogp_base.png')
+        img = Image.open('assets/user_og_image_base.png')
         add_text_to_image(img, '@' + screen_name, 100, (0, 0, 0))
         file_obj = io.BytesIO()
         img.save(file_obj, 'PNG')

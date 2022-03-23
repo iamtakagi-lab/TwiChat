@@ -194,6 +194,8 @@ WEBPAGE_BASE_URL = os.environ.get('WEBPAGE_BASE_URL')
 if DEBUG:
     CORS_ALLOWED_ORIGINS = [
         WEBPAGE_BASE_URL,
+        'localhost',
+        'http://localhost'
         'http://localhost:3000',
         'http://localhost:8080',
     ]
