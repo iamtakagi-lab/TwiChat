@@ -30,7 +30,7 @@ export const Index = () => {
       <section id="top_section">
         <h2 id="top_title">もうひとりの自分と話せるアプリ</h2>
         <p>あなたはひとりじゃない。</p>
-        <img id="top_logo" src="./images/logo.svg" width={"120px"} alt="" />
+        <object id="top_logo" type="image/svg+xml" data="./images/logo.svg" width={"120px"} />
         <div>#もうひとりの自分と話そう</div>
         <p>自分だけの居場所がここにある。</p>
       </section>

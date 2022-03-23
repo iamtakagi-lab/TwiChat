@@ -11,7 +11,7 @@ export const Header = () => (
         id="header_logo"
         onClick={() => (location.href = "/")}
       >
-        <img src="./images/logo.svg" width={"26px"} alt="" />
+        <object type="image/svg+xml" data="./images/logo.svg" width={"26px"} />
         {APP_NAME}
       </div>
     </div>

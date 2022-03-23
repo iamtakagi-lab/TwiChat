@@ -72,7 +72,7 @@ export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="og:image"
-          content={`https://twichat.app/ogp/${screenName}`}
+          content={`https://twichat.app/user_og_image/${screenName}`}
         />
       </Helmet>
       <header className="header" id="chat_header">
@@ -82,7 +82,7 @@ export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
             id="header_logo"
             onClick={() => (location.href = "/")}
           >
-            <img src="./images/logo.png" width={"26px"} alt="" />
+            <object type="image/svg+xml" data="./images/logo.svg" width={"26px"} />
             {APP_NAME}
           </div>
         </div>

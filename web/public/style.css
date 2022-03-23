@@ -343,6 +343,9 @@ h2 {
   background-color: #213b9b;
 }
 
+object {
+  vertical-align: middle;
+}
 
 svg {
   vertical-align: middle;
