@@ -1,7 +1,7 @@
 {
-	"name":				"TwiChat",
-	"short_name":		"TwiChat",
-	"description":		"もうひとりの自分と話せるアプリ",
+	"name":				"",
+	"short_name":		"",
+	"description":		"",
 	"start_url":		"/",
 	"display":			"standalone",
 	"orientation":		"any",
