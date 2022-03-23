@@ -53,7 +53,7 @@ body {
   border-bottom: 0.1rem solid #f7fafc;
 }
 
-#root {
+#__next {
   background: white;
   max-width: 448px;
   min-height: 100vh;

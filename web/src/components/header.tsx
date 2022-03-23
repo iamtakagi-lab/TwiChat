@@ -3,8 +3,8 @@ import { FaTwitter } from "react-icons/fa";
 import { makeApiUrl } from "../common";
 import { API_BASE_URL, APP_NAME } from "../consts";
 
-export const Header = () => (
-  <header className="header">
+export const Header: React.FC<{}> = () => {
+  return <header className="header">
     <div id="header_left">
       <div
         className="logo"
@@ -22,11 +22,11 @@ export const Header = () => (
           location.href = makeApiUrl(
             `auth/login?callback=${API_BASE_URL}auth/callback`
           );
-        }}
+        } }
       >
         <FaTwitter style={{ marginBottom: "2px", marginRight: "2px" }} />
         ログイン
       </div>
     </div>
-  </header>
-);
+  </header>;
+};

@@ -3,10 +3,10 @@ import { FaTwitter, FaFacebook } from "react-icons/fa";
 import { SiHatenabookmark } from "react-icons/si";
 import { makeApiUrl } from "../common";
 import { Layout } from "../components/layout";
+import { DefaultSeo } from "../components/seo";
 import { API_BASE_URL, APP_NAME } from "../consts";
-import { Head } from "../components/head";
 
-export const Index = () => {
+const Index = () => {
   const [screenName, setScreenName] = useState("");
   const [isError, setIsError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,7 +28,6 @@ export const Index = () => {
 
   return (
     <>
-      <Head />
       <Layout>
         <section id="top_section">
           <h2 id="top_title">もうひとりの自分と話せるアプリ</h2>
@@ -158,7 +157,9 @@ export const Index = () => {
             B! はてブ
           </button>
         </section>
-    </Layout>
+      </Layout>
     </>
   );
 };
+
+export default Index;

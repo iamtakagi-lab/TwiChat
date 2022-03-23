@@ -1,10 +1,7 @@
 import React from "react";
-import { Head } from "../components/head";
 import { Layout } from "../components/layout";
 
-export const TermsOfService = () => (
-  <>
-    <Head />
+const TermsOfService = () => (
       <Layout>
         <section id="tos_section">
           <h2>利用規約</h2>
@@ -228,5 +225,6 @@ export const TermsOfService = () => (
           <p>2022年3月21日 制定</p>
         </section>
       </Layout>
-    </>
 );
+
+export default TermsOfService

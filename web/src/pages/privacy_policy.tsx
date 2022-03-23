@@ -1,10 +1,7 @@
 import React from "react";
-import { Head } from "../components/head";
 import { Layout } from "../components/layout";
 
-export const PrivacyPolicy = () => (
-  <>
-    <Head />
+const PrivacyPolicy = () => (
     <Layout>
       <section id="pp_section">
         <h2>プライバシーポリシー</h2>
@@ -42,5 +39,6 @@ export const PrivacyPolicy = () => (
         </p>
       </section>
     </Layout>
-    </>
 );
+
+export default PrivacyPolicy

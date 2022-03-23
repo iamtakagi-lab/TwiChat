@@ -5,6 +5,8 @@ public/assets
 web/public/main.js
 web/server/
 web/dist/
+.next/
+out/
 
 # Database
 postgres/data/**/*
