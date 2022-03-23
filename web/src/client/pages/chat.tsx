@@ -3,7 +3,7 @@ import { FaPaperPlane, FaTwitter } from "react-icons/fa";
 import { makeApiUrl } from "../common";
 import { OPPONENT_MESSAGE_DELAY, APP_NAME } from "../consts";
 import { Layout } from "../components/layout";
-import { Head } from "../components/head";
+import { CustomOgpHead, Head } from "../components/head";
 import { Message, SentenceRensponse } from "../types";
 
 export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
@@ -75,7 +75,7 @@ export const Chat: React.FC<{ screenName: string }> = ({ screenName }) => {
 
   return (
     <>
-      <Head
+      <CustomOgpHead
         pageSubTitle={`${screenName}`}
         ogImageUrl={`https://twichat.app/api/user_og_image/${screenName}`}
       />

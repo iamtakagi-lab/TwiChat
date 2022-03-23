@@ -1,13 +1,14 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-export const Head: React.FC<{pageSubTitle?: string, ogImageUrl?: string}> = ({pageSubTitle, ogImageUrl}) => (
+export const Head = () => (
     <Helmet>
-        <title>TwiChat / {pageSubTitle ? pageSubTitle : "もうひとりの自分と話そう" }</title>
+        <title>TwiChat / もうひとりの自分と話そう</title>
         <meta property="description" content="もうひとりの自分と話そう" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@twichat_app" />
-        <meta property="og:title" content="TwiChat" />
+
+        <meta property="og:title" content="TwiChat / もうひとりの自分と話そう" />
         <meta property="og:description" content="もうひとりの自分と話そう" />
         <meta
           property="og:site_name"
@@ -15,7 +16,7 @@ export const Head: React.FC<{pageSubTitle?: string, ogImageUrl?: string}> = ({pa
         />
         <meta
           property="og:image"
-          content={ogImageUrl ? ogImageUrl : "https://twichat.app/images/og_image.png"}
+          content="https://twichat.app/images/og_image.png"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://twichat.app" />
@@ -257,3 +258,25 @@ export const Head: React.FC<{pageSubTitle?: string, ogImageUrl?: string}> = ({pa
         <link rel="manifest" href="./favicons/manifest.json" />
     </Helmet>
 )
+
+export const CustomOgpHead: React.FC<{pageSubTitle?: string, ogImageUrl?: string}> = ({pageSubTitle, ogImageUrl}) => {
+  const title = `TwiChat / ${pageSubTitle ? pageSubTitle : "もうひとりの自分と話そう" }`
+  return <Helmet>
+      <title>{title}</title>
+      <meta property="description" content="もうひとりの自分と話そう" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@twichat_app" />
+      <meta property="og:title" content={title}/>
+      <meta property="og:description" content="もうひとりの自分と話そう" />
+      <meta
+        property="og:site_name"
+        content="TwiChat / もうひとりの自分と話そう"
+      />
+      <meta
+        property="og:image"
+        content={ogImageUrl ? ogImageUrl : "https://twichat.app/images/og_image.png"}
+      />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://twichat.app" />
+  </Helmet>
+}
