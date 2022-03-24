@@ -315,6 +315,7 @@ h2 {
 }
 
 #chat_input {
+  font-size: 16px;
   margin-bottom: .5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -324,7 +325,6 @@ h2 {
   outline: none;
   padding: .5rem;
   margin-left: .5rem;
-
   border-style: solid;
   border-color: #EFF3F4;
   border-width: .1rem;
