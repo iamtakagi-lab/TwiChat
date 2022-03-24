@@ -23,10 +23,35 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
       props: {
         error: {
           status: 500,
-          message: "ScreenName を入力してください",
+          message: "ScreenName を入力してください。",
         },
       },
     };
+
+  if (!screenName.search(TWITTER_ID_REGEX))
+    return {
+      props: {
+        error: {
+          status: 404,
+          message: "ScreenName の形式が間違っています。",
+        },
+      },
+    };
+
+  const url = new URL(makeApiUrl(`make_sentence/${screenName}`));
+  const res = await fetch(url.href);
+  const isError = res.status != 200;
+  if (isError) {
+    const message = (await res.json())["message"];
+    return {
+      props: {
+        error: {
+          status: res.status,
+          message,
+        },
+      },
+    };
+  }
 
   return {
     props: {
@@ -35,13 +60,11 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   };
 };
 
-const ChatPage: React.FC<Props> = ({ screenName }) => {
+const ChatPage: React.FC<Props> = ({ screenName, error }) => {
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [avatarUrl, setAvatarUrl] = useState("");
   const scrollBottomRef = useRef<HTMLDivElement>(null);
-  const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const makeNewSentence = async () => {
     const sentenceRes = (await fetch(
@@ -61,21 +84,6 @@ const ChatPage: React.FC<Props> = ({ screenName }) => {
         typeof successfullyGenerated !== "boolean"
       ) {
         localStorage.setItem("default_screen_name", screenName);
-      }
-      // Check Error
-      if (!screenName || screenName === null || typeof screenName != "string")
-        return;
-      if (!screenName.search(TWITTER_ID_REGEX)) {
-        setIsError(true);
-        return;
-      }
-      const url = new URL(makeApiUrl(`make_sentence/${screenName}`));
-      const res = await fetch(url.href);
-      const isError = res.status != 200;
-      setIsError(isError);
-      if (isError) {
-        setErrorMessage((await res.json())["message"]);
-        return;
       }
       setTimeout(async () => {
         const { sentence, avatarUrl } = await makeNewSentence();
@@ -110,10 +118,10 @@ const ChatPage: React.FC<Props> = ({ screenName }) => {
     addOpponentMessage(sentence);
   };
 
-  if (isError)
+  if (error)
     return (
       <>
-        <Seo pageSubTitle={`ユーザーが存在しません。`}/>
+        <Seo pageSubTitle={`ユーザーが存在しません。`} />
         <Layout>
           <div
             style={{
@@ -123,7 +131,7 @@ const ChatPage: React.FC<Props> = ({ screenName }) => {
               fontSize: ".8rem",
             }}
           >
-            エラー: {errorMessage}
+            エラー: {error.message}
           </div>
         </Layout>
       </>
