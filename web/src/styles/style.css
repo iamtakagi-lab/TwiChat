@@ -8,6 +8,11 @@
   src: url("/fonts/NotoSansJP-Bold.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url("/fonts/Roboto-Medium.ttf") format("truetype");
+}
+
 /* ロゴ用 */
 @font-face {
   font-family: "MPLUSRounded1c-Black";
@@ -33,7 +38,7 @@ button {
 
 body {
   background: #f7fafc;
-  font-family: "Roboto-Medium", sans-serif;
+  font-family: "NotoSansJP-Medium", sans-serif;
   margin: 0;
   padding: 0;
   /* border-right: solid 1px gray; */
@@ -323,7 +328,7 @@ h2 {
   border-style: solid;
   border-color: #EFF3F4;
   border-width: .1rem;
-  width: 80%;
+  width: 75%;
 }
 
 #chat_input:focus  {
@@ -532,6 +537,8 @@ a {
   margin-left: 0.2rem;
   margin-right: 0.2rem;
   text-decoration-line: none;
+  appearance: none;
+  
 }
 
 .footer_account img {
