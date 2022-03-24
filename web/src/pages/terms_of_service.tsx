@@ -67,7 +67,6 @@ const TermsOfService = () => (
           1.
           当団体は、本サービスの利用によって取得する個人情報については、当団体「
           <a
-            className="border-b hover:border-purple-800 text-purple-800 border-transparent"
             href="/privacy_policy"
           >
             プライバシーポリシー
