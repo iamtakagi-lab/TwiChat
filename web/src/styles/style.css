@@ -165,6 +165,10 @@ section {
   font-size: .97rem;
 }
 
+#delete_section {
+  margin-top: 3rem;
+}
+
 #chat {
   background: white;
   padding-top: 3rem;

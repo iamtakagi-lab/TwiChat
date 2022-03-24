@@ -14,8 +14,11 @@ const Index = () => {
   const [isLearningError, setIsLearningError] = useState(false);
   const [isOpenChatError, setIsOpenChatError] = useState(false);
   const [openChatErrorMessage, setOpenChatErrorMessage] = useState("");
+
+  /*
   const [isDeletedError, setIsDeletedError] = useState(false);
   const [isSuccessfullyDeleted, setIsSuccessfullyDeleted] = useState(false);
+  */
 
   useEffect(() => {
     const current = new URL(location.href);
@@ -35,6 +38,7 @@ const Index = () => {
       setIsLearningError(true);
     }
 
+    /*
     const errorDeleted = current.searchParams.get("error_deleted");
     if (errorDeleted !== null && typeof errorDeleted !== "boolean") {
       setIsDeletedError(true);
@@ -43,7 +47,7 @@ const Index = () => {
     const successfullyDeleted = current.searchParams.get("successfully_deleted");
     if (successfullyDeleted !== null && typeof successfullyDeleted !== "boolean") {
       setIsSuccessfullyDeleted(true);
-    }
+    }*/
 
     const defaultScreenName = localStorage.getItem("default_screen_name");
     if (defaultScreenName !== null && screenName.search(TWITTER_ID_REGEX)) {
@@ -157,7 +161,8 @@ const Index = () => {
             </button>
           </form>
         </section>
-        <section id="talk_others_section">
+        {/*
+        <section id="delete_section">
           <h2>削除</h2>
           {isDeletedError && (
             <div
@@ -191,6 +196,7 @@ const Index = () => {
             学習データを削除する
           </button>
         </section>
+        */}
         <section id="how_to_use_section">
           <h3 id="how_to_use">つかいかた</h3>
           <section className="how_to_use_description">
