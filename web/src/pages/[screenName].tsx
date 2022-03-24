@@ -35,7 +35,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   };
 };
 
-const ChatPage: React.FC<Props> = ({screenName}) => {
+const ChatPage: React.FC<Props> = ({ screenName }) => {
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -52,6 +52,16 @@ const ChatPage: React.FC<Props> = ({screenName}) => {
 
   useEffect(() => {
     const initialize = async () => {
+      const current = new URL(location.href);
+      const successfullyGenerated = current.searchParams.get(
+        "successfully_generated"
+      );
+      if (
+        successfullyGenerated !== null &&
+        typeof successfullyGenerated !== "boolean"
+      ) {
+        localStorage.setItem("default_screen_name", screenName);
+      }
       // Check Error
       if (!screenName || screenName === null || typeof screenName != "string")
         return;
@@ -102,11 +112,21 @@ const ChatPage: React.FC<Props> = ({screenName}) => {
 
   if (isError)
     return (
-      <Layout>
-        <p style={{ textAlign: "center", marginTop: "1rem" }}>
-          エラー: {errorMessage}
-        </p>
-      </Layout>
+      <>
+        <Seo pageSubTitle={`ユーザーが存在しません。`}/>
+        <Layout>
+          <div
+            style={{
+              textAlign: "center",
+              marginTop: "1rem",
+              color: "red",
+              fontSize: ".8rem",
+            }}
+          >
+            エラー: {errorMessage}
+          </div>
+        </Layout>
+      </>
     );
 
   return (

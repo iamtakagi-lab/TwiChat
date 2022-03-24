@@ -17,6 +17,9 @@
 * {
   margin: 0 auto;
   padding: 0 auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 button {
@@ -134,9 +137,24 @@ section {
   background-color: white;
 }
 
+#learning_delete_btn {
+  width: 77%;
+  padding: 0.7rem;
+  background-color: rgb(250, 52, 52);
+}
+
+#learning_delete_btn:hover {
+  background-color: rgb(180, 46, 28);
+}
+
 #talk_others_btn {
   width: 77%;
   padding: 0.7rem;
+  background-color: #2c5ebb;
+}
+
+#talk_others_btn:hover {
+  background-color: #213b9b;
 }
 
 #talk_others_section {
@@ -319,7 +337,7 @@ h2 {
   padding-right: 0.75rem;
   margin-top: 0.25rem;
   margin-left: 0.5rem;
-  background-color: #2c5ebb;
+  background-color: transparent;
   transition-property: background-color, border-color, color, fill, stroke,
     opacity, box-shadow, transform;
   transition-duration: 500ms;
@@ -340,10 +358,6 @@ h2 {
   margin-top: 1rem;
 }
 
-.btn:hover {
-  background-color: #213b9b;
-}
-
 object {
   vertical-align: middle;
 }
@@ -352,8 +366,11 @@ svg {
   vertical-align: middle;
 }
 
-#login_btn {
+#top_login_section {
   margin-top: 1.5rem;
+}
+
+#login_btn {
   margin-bottom: .5rem;
   width: 77%;
   padding: 0.7rem;

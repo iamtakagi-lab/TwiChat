@@ -111,7 +111,7 @@ class AuthAndGenAPIView(APIView):
         genmodel.save()
         logger.info('LOG:MODELGEN:{}'.format(screen_name))
 
-        return redirect('/{}'.format(screen_name))
+        return redirect('/{}?successfully_generated=true'.format(screen_name))
 
 class AuthAndDelAPIView(APIView):
     def get(self, request):
@@ -126,7 +126,7 @@ class AuthAndDelAPIView(APIView):
             if GeneratedModel.objects.filter(user=user).exists():
                 GeneratedModel.objects.filter(user=user).delete()
                 return redirect('/' + '?successfully_deleted=true')
-        return redirect('/' + '?error_unregistered=true')
+        return redirect('/' + '?error_deleted=true')
 
 class GenTextAPIView(APIView):
     def get(self, request, screen_name):
