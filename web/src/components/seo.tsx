@@ -8,7 +8,7 @@ export const Seo: React.FC<{
   return (
     <Head>
       <meta charSet="UTF-8" />
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
+      <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0" />
       <meta name="referrer" content="origin" />
       <link rel="preconnect" href="https://cdn.jsdelivr.net" />
       <link rel="stylesheet" href="./style.css" />
