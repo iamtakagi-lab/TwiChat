@@ -1,17 +1,17 @@
 @font-face {
   font-family: "NotoSansJP-Medium";
-  src: url("./fonts/NotoSansJP-Medium.ttf") format("truetype");
+  src: url("/fonts/NotoSansJP-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "NotoSansJP-Bold";
-  src: url("./fonts/NotoSansJP-Bold.ttf") format("truetype");
+  src: url("/fonts/NotoSansJP-Bold.ttf") format("truetype");
 }
 
 /* ロゴ用 */
 @font-face {
   font-family: "MPLUSRounded1c-Black";
-  src: url("./fonts/MPLUSRounded1c-Black.ttf") format("truetype");
+  src: url("/fonts/MPLUSRounded1c-Black.ttf") format("truetype");
 }
 
 * {

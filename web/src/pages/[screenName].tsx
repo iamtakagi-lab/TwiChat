@@ -4,11 +4,38 @@ import { makeApiUrl } from "../common";
 import { OPPONENT_MESSAGE_DELAY, APP_NAME, TWITTER_ID_REGEX } from "../consts";
 import { Layout } from "../components/layout";
 import { Message, SentenceRensponse } from "../types";
-import { useRouter } from "next/router";
-import Head from "next/head";
 import { Seo } from "../components/seo";
+import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 
-const Chat = () => {
+type Props = {
+  screenName: string;
+  error?: {
+    status: number;
+    message: string;
+  };
+};
+
+export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+  const { screenName } = ctx.query;
+
+  if (!screenName || screenName === null || typeof screenName !== "string")
+    return {
+      props: {
+        error: {
+          status: 500,
+          message: "ScreenName を入力してください",
+        },
+      },
+    };
+
+  return {
+    props: {
+      screenName,
+    },
+  };
+};
+
+const ChatPage: React.FC<Props> = ({screenName}) => {
   const [chatInput, setChatInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [avatarUrl, setAvatarUrl] = useState("");
@@ -23,36 +50,31 @@ const Chat = () => {
     return sentenceRes;
   };
 
-  const router = useRouter();
-  const { screenName } = router.query;
-
   useEffect(() => {
-    if (router.isReady) {
-      const initialize = async () => {
-        /* Check Error */
-        if (!screenName || screenName === null || typeof screenName != "string")
-          return;
-        if (!screenName.search(TWITTER_ID_REGEX)) {
-          setIsError(true);
-          return;
-        }
-        const url = new URL(makeApiUrl(`make_sentence/${screenName}`));
-        const res = await fetch(url.href);
-        const isError = res.status != 200;
-        setIsError(isError);
-        if (isError) {
-          setErrorMessage((await res.json())["message"]);
-          return;
-        }
-        setTimeout(async () => {
-          const { sentence, avatarUrl } = await makeNewSentence();
-          setAvatarUrl(avatarUrl);
-          setMessages([{ text: sentence, isMine: false }, ...messages]);
-        }, 500);
-      };
-      initialize();
-    }
-  }, [screenName, router]);
+    const initialize = async () => {
+      // Check Error
+      if (!screenName || screenName === null || typeof screenName != "string")
+        return;
+      if (!screenName.search(TWITTER_ID_REGEX)) {
+        setIsError(true);
+        return;
+      }
+      const url = new URL(makeApiUrl(`make_sentence/${screenName}`));
+      const res = await fetch(url.href);
+      const isError = res.status != 200;
+      setIsError(isError);
+      if (isError) {
+        setErrorMessage((await res.json())["message"]);
+        return;
+      }
+      setTimeout(async () => {
+        const { sentence, avatarUrl } = await makeNewSentence();
+        setAvatarUrl(avatarUrl);
+        setMessages([{ text: sentence, isMine: false }, ...messages]);
+      }, 500);
+    };
+    initialize();
+  }, []);
 
   const addMessage = (message: Message) =>
     setMessages((prevMessages) => [...prevMessages, message]);
@@ -89,7 +111,7 @@ const Chat = () => {
 
   return (
     <>
-      {router.isReady && screenName && (
+      {screenName && (
         <>
           <Seo
             pageSubTitle={`${screenName}`}
@@ -179,4 +201,4 @@ const Chat = () => {
   );
 };
 
-export default Chat;
+export default ChatPage;

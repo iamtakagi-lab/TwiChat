@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start -p $PORT"
   },
   "dependencies": {
-    "next": "^12.1.0",
+    "next": "11.1",
     "react": "^17.0.2",
     "react-icons": "^4.3.1"
   },
