@@ -482,16 +482,20 @@ svg {
 
 #twitter_share_btn {
   margin-top: 1rem;
+  height: 2.1rem;
   background-color: #1da1f2;
 }
 
 #facebook_share_btn {
   margin-top: 1rem;
+  height: 2.1rem;
   background-color: #3b5998;
+  font-family: 'Roboto-Medium', sans-serif;
 }
 
 #hatebu_share_btn {
   margin-top: 1rem;
+  height: 2.1rem;
   background-color: #00a4de;
 }
 
