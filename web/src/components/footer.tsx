@@ -5,16 +5,16 @@ export const Footer = () => (
   <footer id="footer">
     <p id="footer_copyright">© {APP_NAME}</p>
     <div id="footer_links">
-      <a href="/terms_of_service" className="footer_link">
+      <a href="https://twichat.app/terms_of_service" className="footer_link">
         利用規約
       </a>
-      <a href="/privacy_policy" className="footer_link">
+      <a href="https://twichat.app/privacy_policy" className="footer_link">
         プライバシーポリシー
       </a>
-      <a href="/faq" className="footer_link">
+      <a href="https://twichat.app/faq" className="footer_link">
         よくある質問 (FAQ)
       </a>
-      <a href="/inquires" className="footer_link">
+      <a href="https://twichat.app/inquires" className="footer_link">
         お問い合わせ
       </a>
     </div>
