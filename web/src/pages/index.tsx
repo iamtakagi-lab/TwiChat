@@ -124,8 +124,8 @@ const Index = () => {
             ツイートを学習させる
           </button>
           <p id="please_agree">
-            <a href="/terms_of_service">利用規約</a>・
-            <a href="/privacy_policy">プライバシーポリシー</a>{" "}
+            <a href="https://twichat.app/terms_of_service">利用規約</a>・
+            <a href="https://twichat.app/privacy_policy">プライバシーポリシー</a>{" "}
             に同意の上でご利用ください
           </p>
         </section>
