@@ -12,7 +12,7 @@ const Inquires = () => (
         <h2>お問い合わせ</h2>
         <p id="inquires">
           公式アカウント{" "}
-          <img src="./twichat_app.png" alt="" width={"30px"} height={"30px"} />{" "}
+          <img src="./images/twichat_app.png" alt="" width={"30px"} height={"30px"} />{" "}
           <a href="https://twitter.com/twichat_app">@twichat_app</a>
         </p>
         <br />
