@@ -253,7 +253,7 @@ export const Seo: React.FC<{
       </title>
       <meta property="description" content="もうひとりの自分と話そう" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@twichat_app" />
+      <meta name="twitter:site" content="@919takagi" />
       <meta
         property="og:title"
         content={`TwiChat / ${
@@ -268,11 +268,11 @@ export const Seo: React.FC<{
       <meta
         property="og:image"
         content={
-          ogImageUrl ? ogImageUrl : "https://twichat.app/images/og_image.png"
+          ogImageUrl ? ogImageUrl : "https://twichat.iamtakagi.net/images/og_image.png"
         }
       />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://twichat.app" />
+      <meta property="og:url" content="https://twichat.iamtakagi.net" />
     </Head>
   );
 };
