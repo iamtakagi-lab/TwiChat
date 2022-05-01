@@ -20,16 +20,6 @@ export const Footer = () => (
     </div>
     <div id="footer_accounts">
       <p className="footer_account">
-        公式アカウント{" "}
-        <img
-          src="./images/twichat_app.png"
-          alt=""
-          width={"30px"}
-          height={"30px"}
-        />{" "}
-        <a href="https://twitter.com/twichat_app">@twichat_app</a>
-      </p>
-      <p className="footer_account">
         Made by{" "}
         <img
           src="./images/919takagi.png"
