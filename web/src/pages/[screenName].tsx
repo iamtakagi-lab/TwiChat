@@ -203,7 +203,7 @@ const ChatPage: React.FC<Props> = ({ screenName }) => {
                           id="opponent_chatting_share_btn"
                           onClick={() =>
                             open(
-                              `https://twitter.com/intent/tweet?text=「${message.text}」by もうひとりの @${screenName} &hashtags=もうひとりの自分と話そう&via=twichat_app&url=https://twichat.app/${screenName}`
+                              `https://twitter.com/intent/tweet?text=「${message.text}」by もうひとりの @${screenName} &hashtags=もうひとりの自分と話そう&url=https://twichat.iamtakagi.net/${screenName}`
                             )
                           }
                         >
