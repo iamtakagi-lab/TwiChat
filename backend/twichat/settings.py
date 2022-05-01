@@ -53,8 +53,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'account',
-    'sentence',
-    'ranking',
+    'sentence'
 ]
 
 MIDDLEWARE = [
