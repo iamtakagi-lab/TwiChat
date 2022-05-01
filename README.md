@@ -22,5 +22,5 @@ WEBPAGE_BASE_URL=http://localhost
 - [MeCab](https://taku910.github.io/mecab)
 - [cordx56/tweet-generator](https://github.com/cordx56/tweet-generator)
 
-## License
+## LICENSE
 MIT License
