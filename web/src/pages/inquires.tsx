@@ -11,9 +11,9 @@ const Inquires = () => (
       <section id="inquires_section">
         <h2>お問い合わせ</h2>
         <p id="inquires">
-          公式アカウント{" "}
-          <img src="./images/twichat_app.png" alt="" width={"30px"} height={"30px"} />{" "}
-          <a href="https://twitter.com/twichat_app">@twichat_app</a>
+          開発者アカウント{" "}
+          <img src="./images/919takagi.png" alt="" width={"30px"} height={"30px"} />{" "}
+          <a href="https://twitter.com/919takagi">@919takagi</a>
         </p>
         <br />
         <p>
