@@ -227,7 +227,7 @@ const Index = () => {
             id="twitter_share_btn"
             onClick={() =>
               open(
-                `https://twitter.com/intent/tweet?text=${document.title}&hashtags=TwiChat,もうひとりの自分と話そう&url=https://twichat.app`,
+                `https://twitter.com/intent/tweet?text=${document.title}&hashtags=TwiChat,もうひとりの自分と話そう&url=https://twichat.iamtakagi.net`,
                 "_blank",
                 "noreferrer"
               )
@@ -241,7 +241,7 @@ const Index = () => {
             id="facebook_share_btn"
             onClick={() =>
               open(
-                "https://www.facebook.com/share.php?u=https://twichat.app",
+                "https://www.facebook.com/share.php?u=https://twichat.iamtakagi.net",
                 "_blank",
                 "noreferrer"
               )
@@ -255,7 +255,7 @@ const Index = () => {
             id="hatebu_share_btn"
             onClick={() =>
               open(
-                `https://b.hatena.ne.jp/entry/panel/?url=https://twichat.app&btitle=${document.title}`,
+                `https://b.hatena.ne.jp/entry/panel/?url=https://twichat.iamtakagi.net&btitle=${document.title}`,
                 "_blank",
                 "noreferrer"
               )
