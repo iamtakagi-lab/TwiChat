@@ -11,22 +11,11 @@ services:
       - 80:80
       - 443:443
     networks:
-      - external_network
+      - proxy_network
     depends_on:
       - web
       - backend
-
-  web:
-    container_name: web
-    build:
-      context: ./web
-    environment:
-      TZ: Asia/Tokyo
-    networks:
-      - external_network
-    depends_on:
-      - backend
-
+  
   postgres:
     container_name: postgres
     image: postgres
@@ -41,8 +30,21 @@ services:
     networks:
       - internal_network
 
+  web:
+    container_name: web
+    image: ghcr.io/iamtakagi/twichat_web:latest
+    build:
+      context: ./web
+    environment:
+      TZ: Asia/Tokyo
+    networks:
+      - proxy_network
+    depends_on:
+      - backend
+
   backend:
     container_name: backend
+    image: ghcr.io/iamtakagi/twichat_backend:latest
     build:
       context: ./backend
     volumes:
@@ -64,10 +66,10 @@ services:
       gunicorn -c /app/gunicorn.py twichat.wsgi"
     networks:
       - internal_network
-      - external_network
+      - proxy_network
 
 networks:
-    external_network:
+    proxy_network:
       external: true
     internal_network:
       internal: true
