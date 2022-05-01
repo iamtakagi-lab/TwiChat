@@ -103,11 +103,9 @@ const ChatPage: React.FC<Props> = ({ screenName }) => {
         setErrorMessage((await res.json())["message"]);
         return;
       }
-      setTimeout(async () => {
-        const { sentence, avatarUrl } = await makeNewSentence();
-        setAvatarUrl(avatarUrl);
-        setMessages([{ text: sentence, isMine: false }, ...messages]);
-      }, 100);
+      const { sentence, avatarUrl } = await makeNewSentence();
+      setAvatarUrl(avatarUrl);
+      setMessages([{ text: sentence, isMine: false }, ...messages]);
     };
     initialize();
   }, []);
