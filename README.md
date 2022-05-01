@@ -1,6 +1,8 @@
 # TwiChat
 ![](./web/public/images/og_image.png)
 
+This service received [over 120 retweets](https://twitter.com/919takagi/status/1506935485310324737) and [over 1350 users](https://i.imgur.com/pqw92bC.png) in about a month.
+
 Run `$ docker-compose up -d --build`
 
 Environment variable setting in backend is required.
