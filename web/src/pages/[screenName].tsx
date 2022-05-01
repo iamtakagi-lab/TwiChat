@@ -107,7 +107,7 @@ const ChatPage: React.FC<Props> = ({ screenName }) => {
         const { sentence, avatarUrl } = await makeNewSentence();
         setAvatarUrl(avatarUrl);
         setMessages([{ text: sentence, isMine: false }, ...messages]);
-      }, 500);
+      }, 100);
     };
     initialize();
   }, []);
