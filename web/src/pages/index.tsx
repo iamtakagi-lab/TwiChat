@@ -1,4 +1,4 @@
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from 'next/router'
 import Head from "next/head";
 import React, { FormEvent, useEffect, useState } from "react";
 import { FaTwitter, FaFacebook } from "react-icons/fa";
